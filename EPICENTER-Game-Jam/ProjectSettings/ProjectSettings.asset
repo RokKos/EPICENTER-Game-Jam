@@ -645,10 +645,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 7b7c621b-75f9-4b8b-be7e-c2c912194e75
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: EPICENTER-Game-Jam
+  organizationId: rok-kos
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

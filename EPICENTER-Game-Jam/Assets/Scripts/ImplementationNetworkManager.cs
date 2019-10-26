@@ -31,6 +31,8 @@ public class ImplementationNetworkManager : NetworkManager {
         } else if (playerCount == 1) {
             Debug.Log("<color=green>ImplementationNetworkManager::</color>Player 2 connected. ID:" + playerControllerId);
             Camera.main.enabled = true;
+            fpsController.GetComponent<AudioSource>().enabled = false;
+            fpsController.GetComponentInChildren<AudioListener>().enabled = false;
         }
         playerCount++;
 

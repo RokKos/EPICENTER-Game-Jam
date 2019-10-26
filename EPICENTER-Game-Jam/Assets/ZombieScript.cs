@@ -4,8 +4,8 @@ public class ZombieScript : MonoBehaviour
 {
     public GameObject Player;
     public float movementSpeed = 4;
-    void Update()
-    {
+
+    void Update() {
         transform.LookAt(Player.transform);
         transform.position += transform.forward * movementSpeed * Time.deltaTime;
     }

@@ -10,6 +10,7 @@ public class ImplementationNetworkManager : NetworkManager {
 
     public override void OnStartServer() {
         base.OnStartServer();
+        Debug.Log("<color=green>ImplementationNetworkManager::</color>On Server start");
         playerCount = 0;
     }
 
@@ -24,11 +25,14 @@ public class ImplementationNetworkManager : NetworkManager {
         var player = (GameObject)GameObject.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
         FirstPersonController fpsController = player.GetComponent<FirstPersonController>();
         if (playerCount == 0) {
+            Debug.Log("<color=green>ImplementationNetworkManager::</color>Player 1 connected. ID:" + playerControllerId);
             Camera.main.enabled = false;
             //Destroy(Camera.main);
-        } else if (playerCount == 1) { 
-            // TODO: Destroy audio
+        } else if (playerCount == 1) {
+            Debug.Log("<color=green>ImplementationNetworkManager::</color>Player 2 connected. ID:" + playerControllerId);
+            Camera.main.enabled = true;
         }
+        playerCount++;
 
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
         Debug.Log("<color=green>ImplementationNetworkManager::</color>Client has requested to get his player added to the game");

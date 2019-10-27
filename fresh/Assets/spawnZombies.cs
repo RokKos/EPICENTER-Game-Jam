@@ -6,9 +6,12 @@ public class spawnZombies : MonoBehaviour
 {
 
     private float nextSpawn = 0.0f;
-    public float spawnCheckDelay = 3.0f;
-
+    public float spawnCheckDelay = 5.0f;
     public GameObject zombie;
+    private int maxZombies = 5;
+
+    private float maxZombieInceseTime = 15.0f;
+    private float maxZombieIncreaseInterval = 10.0f; 
 
     void Start() {
     }
@@ -17,9 +20,20 @@ public class spawnZombies : MonoBehaviour
         if (Time.time > nextSpawn) {
             nextSpawn += spawnCheckDelay;
 
-            if (numberOfZombies() < 5) {
+            spawnCheckDelay -= 0.2f;
+
+            if (spawnCheckDelay < 0.5f)
+                spawnCheckDelay = 0.5f;
+
+            if (numberOfZombies() < maxZombies) {
                 spawnZombie();
             }
+        }
+        if (Time.time > maxZombieInceseTime) {
+            maxZombieInceseTime += maxZombieIncreaseInterval;
+            maxZombies++;
+            if (maxZombies > 25)
+                maxZombies = 25;
         }
     }
 

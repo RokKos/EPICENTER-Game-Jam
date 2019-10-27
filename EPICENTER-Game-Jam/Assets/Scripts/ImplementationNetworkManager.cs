@@ -34,14 +34,14 @@ public class ImplementationNetworkManager : NetworkManager {
             //Camera.main.enabled = false;
             //Destroy(Camera.main);
 
-            proxyPlayerController.Init(FindObjectOfType<FirstPersonController>(), PlayerIdentity.kPlayerOne);
+            //proxyPlayerController.Init(FindObjectOfType<FirstPersonController>(), PlayerIdentity.kPlayerOne);
 
         } else if (playerCount == 1) {
             Debug.Log("<color=green>ImplementationNetworkManager::</color>Player 2 connected. ID:" + playerControllerId);
             //Camera.main.enabled = true;
             //fpsController.GetComponent<AudioSource>().enabled = false;
             //fpsController.GetComponentInChildren<AudioListener>().enabled = false;
-            proxyPlayerController.Init(FindObjectOfType<FirstPersonController>(), PlayerIdentity.kPlayerTwo);
+            //proxyPlayerController.Init(FindObjectOfType<FirstPersonController>(), PlayerIdentity.kPlayerTwo);
         }
         playerCount++;
 

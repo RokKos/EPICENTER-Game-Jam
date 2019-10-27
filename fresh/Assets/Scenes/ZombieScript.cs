@@ -10,11 +10,12 @@ public class ZombieScript : MonoBehaviour
     public Transform player;
     public NavMeshAgent agent;
 
-    public int health = 10;
+    public int health = 3;
 
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.Find("FPSController");
     }
 
     // Update is called once per frame

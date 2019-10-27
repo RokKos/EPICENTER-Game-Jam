@@ -5,17 +5,17 @@ using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 using UnityStandardAssets.Characters.FirstPerson;
 
+
 public class ImplementationNetworkManager : NetworkManager {
-    private int playerCount= 0;
-    private FirstPersonController fpsController;
-    [SerializeField] FirstPersonController fpsControllerPrefab;
+    private int playerCount = 0;
+    private OWNFirstPersonController fpsController;
+
+    public static OWNFirstPersonController playerOne = null;
 
     public override void OnStartServer() {
         base.OnStartServer();
         Debug.Log("<color=green>ImplementationNetworkManager::</color>On Server start");
         playerCount = 0;
-        
-        FirstPersonController fpsController = FindObjectOfType<FirstPersonController>();
     }
 
 
@@ -27,13 +27,13 @@ public class ImplementationNetworkManager : NetworkManager {
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId) {
         //base.OnServerAddPlayer(conn, playerControllerId);
         var player = (GameObject)GameObject.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
-        ProxyPlayerController proxyPlayerController = player.GetComponent<ProxyPlayerController>();
-        
+        OWNFirstPersonController fpsController = player.GetComponent<OWNFirstPersonController>();
+
         if (playerCount == 0) {
             Debug.Log("<color=green>ImplementationNetworkManager::</color>Player 1 connected. ID:" + playerControllerId);
             //Camera.main.enabled = false;
             //Destroy(Camera.main);
-
+            playerOne = fpsController;
             //proxyPlayerController.Init(FindObjectOfType<FirstPersonController>(), PlayerIdentity.kPlayerOne);
 
         } else if (playerCount == 1) {

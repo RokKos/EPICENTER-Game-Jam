@@ -363,8 +363,7 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 5291830010015949890, guid: ffe9d67b90ed9d74da9f03c92795dc05,
-    type: 3}
+  m_PlayerPrefab: {fileID: 100000, guid: 81af4a9345e703f4d846202b6dcf9b55, type: 3}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: OfflineScene
@@ -426,5 +425,4 @@ MonoBehaviour:
   matchSize: 4
   isNetworkActive: 0
   matchMaker: {fileID: 0}
-  fpsControllerPrefab: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0,
-    type: 3}
+  fpsControllerPrefab: {fileID: 0}

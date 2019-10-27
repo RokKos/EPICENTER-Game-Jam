@@ -11,7 +11,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 {
     [RequireComponent(typeof (CharacterController))]
     [RequireComponent(typeof (AudioSource))]
-    public class FirstPersonController : NetworkBehaviour
+    public class OWNFirstPersonController : NetworkBehaviour
     {
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
@@ -103,10 +103,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
         private void LateUpdate() {
-            //if (ImplementationNetworkManager.playerOne == this) { }
-            m_Camera.cullingMask = 0;
-            m_Camera.clearFlags = CameraClearFlags.SolidColor;
-            m_Camera.backgroundColor = Color.cyan;
+            if (ImplementationNetworkManager.playerOne == this) {
+                m_Camera.cullingMask = 0;
+                m_Camera.clearFlags = CameraClearFlags.SolidColor;
+                m_Camera.backgroundColor = Color.cyan;
+            }
         }
 
         public void FixedUpdate()

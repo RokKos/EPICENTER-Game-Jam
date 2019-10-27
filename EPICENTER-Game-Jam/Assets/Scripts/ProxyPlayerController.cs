@@ -17,15 +17,15 @@ public class ProxyPlayerController : NetworkBehaviour
     // Update is called once per frame
     /*
     private void Update() {
-        if (!isLocalPlayer) {
+        /*if (isLocalPlayer) {
             firstPersonController.Update_(playerIdentity);
-        }
+        }*/
     }
 
     private void FixedUpdate() {
-        if (!isLocalPlayer) {
+        /*if (isLocalPlayer) {
             firstPersonController.FixedUpdate_(playerIdentity);
-        }
+        }*/
     }
     */
 }

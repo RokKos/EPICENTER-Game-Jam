@@ -65,15 +65,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 
         // Update is called once per frame
-        public void Update_( PlayerIdentity playerIdentity)
+        public void Update()
         {
             RotateView();
-            if (playerIdentity == PlayerIdentity.kPlayerTwo) {
-                // the jump state needs to read here to make sure it is not missed
-                if (!m_Jump) {
-                    m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-                }
+            
+            // the jump state needs to read here to make sure it is not missed
+            if (!m_Jump) {
+                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
+            
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
             {
@@ -99,10 +99,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
-        public void FixedUpdate_(PlayerIdentity playerIdentity)
+        public void FixedUpdate()
         {
             float speed = 0;
-            GetInput(playerIdentity, out speed);
+            GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
             Vector3 desiredMove = transform.forward * m_Input.y + transform.right * m_Input.x;
 
@@ -210,24 +210,21 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
-        private void GetInput(PlayerIdentity playerIdentity, out float speed)
+        private void GetInput(out float speed)
         {
             float horizontal = 0;
             float vertical = 0;
-            if (playerIdentity == PlayerIdentity.kPlayerTwo) {
-                // Read input
-                horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
-                vertical = CrossPlatformInputManager.GetAxis("Vertical");
-            }
+           
+            // Read input
+            horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
+            vertical = CrossPlatformInputManager.GetAxis("Vertical");
 
             bool waswalking = m_IsWalking;
 
 #if !MOBILE_INPUT
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
-            if (playerIdentity == PlayerIdentity.kPlayerTwo) {
-                m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
-            }
+            m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;

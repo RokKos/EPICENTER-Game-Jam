@@ -15,6 +15,7 @@ public class ProxyPlayerController : NetworkBehaviour
     }
 
     // Update is called once per frame
+    /*
     private void Update() {
         if (!isLocalPlayer) {
             firstPersonController.Update_(playerIdentity);
@@ -26,4 +27,5 @@ public class ProxyPlayerController : NetworkBehaviour
             firstPersonController.FixedUpdate_(playerIdentity);
         }
     }
+    */
 }

@@ -60,13 +60,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_NextStep = m_StepCycle/2f;
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
+            CrossPlatformInputManager.SwitchActiveInputMethod(CrossPlatformInputManager.ActiveInputMethod.Hardware);
         }
 
 
         // Update is called once per frame
         public void Update_( PlayerIdentity playerIdentity)
         {
-            
             RotateView();
             if (playerIdentity == PlayerIdentity.kPlayerTwo) {
                 // the jump state needs to read here to make sure it is not missed
